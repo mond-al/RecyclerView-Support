@@ -1,4 +1,4 @@
-package com.al.mond.itemsgaptouchexample
+package com.al.mond.example
 
 import org.junit.Test
 

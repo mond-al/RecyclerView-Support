@@ -1,4 +1,4 @@
-package com.al.mond.itemsgaptouchexample
+package com.al.mond.example
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
