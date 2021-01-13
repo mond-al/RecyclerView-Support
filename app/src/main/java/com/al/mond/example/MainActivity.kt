@@ -5,7 +5,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.al.mond.example.simple.SimpleAdapter
-import com.al.mond.example.simple.SimpleOffestDecoration
+import com.al.mond.example.simple.SimpleOffsetDecoration
 import com.al.mond.support.recyclerview.OnClickItemTermListener
 
 class MainActivity : AppCompatActivity() {
@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         // Very simple RecyclerView and Adapter Bind
         findViewById<RecyclerView>(R.id.recyclerview).apply {
             adapter = SimpleAdapter()
-            addItemDecoration(SimpleOffestDecoration())
+            addItemDecoration(SimpleOffsetDecoration(dp2px, dp2px))
 
             // Add addOnItemTouchListener
             addOnItemTouchListener(OnClickItemTermListener(overlapHeight = 10.dp2px(), listener = object : OnClickItemTermListener.OnClickListener {
