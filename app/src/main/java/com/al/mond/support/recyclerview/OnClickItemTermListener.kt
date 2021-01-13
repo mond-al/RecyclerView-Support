@@ -6,8 +6,18 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 /**
- * use for only LinearLayoutManager
+ * @author mond.al
+ *
+ *  Register a callback to be invoked when this between viewholders is clicked.
+ *  If [overlapHeight] is 0, overlapping touch areas are not applied.
+ *  It not applied even if the height of the item is less than 4 times the overlapHeight.
+ *  link https://github.com/mond-al/RecyclerView-Support
+ * 
+ * @property overlapHeight The number of how much to extend the touch area at the top and bottom of the item.
+ * @property listener The callback that will run [OnClickListener]
+ *
  */
+
 class OnClickItemTermListener(
     private val overlapHeight: Int = 0,
     private val listener: OnClickListener
