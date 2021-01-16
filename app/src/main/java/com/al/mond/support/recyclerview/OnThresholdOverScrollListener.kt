@@ -4,8 +4,19 @@ import android.content.res.Resources
 import androidx.recyclerview.widget.RecyclerView
 import kotlin.math.abs
 
+/**
+ *
+ * @author mond.al
+ *
+ * On threshold over scroll listener
+ *
+ * @property threshold default value is 10% of screen height
+ * @property callback function will be call by over threshold
+ *
+ */
+
 class OnThresholdOverScrollListener(
-    private val threshold: Int = Resources.getSystem().displayMetrics.heightPixels / 10, // 10% of screen height
+    private val threshold: Int = Resources.getSystem().displayMetrics.heightPixels / 10,
     private val callback: (direction: Direction) -> Unit
 ) : RecyclerView.OnScrollListener() {
     private var oldDirection = Direction.None
