@@ -1,11 +1,7 @@
 package com.al.mond.example
 
-import android.content.Context
-import android.content.res.Resources
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.al.mond.example.simple.SimpleAdapter
@@ -23,6 +19,9 @@ class MainActivity : AppCompatActivity() {
         findViewById<RecyclerView>(R.id.recyclerview).apply {
             adapter = SimpleAdapter()
             addItemDecoration(SimpleOffsetDecoration(20, 10))
+            addOnScrollListener(OnThresholdOverScrollListener { direction ->
+                "Direction Changed - $direction".log()
+            })
             addOnItemTouchListener(
                 OnClickItemTermListener(
                     overlapHeight = 10.dp2px(),
