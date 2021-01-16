@@ -1,13 +1,18 @@
 package com.al.mond.example
 
+import android.content.Context
+import android.content.res.Resources
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.al.mond.example.simple.SimpleAdapter
 import com.al.mond.example.simple.SimpleOffsetDecoration
 import com.al.mond.support.dp2px
 import com.al.mond.support.recyclerview.OnClickItemTermListener
+import com.al.mond.support.recyclerview.OnThresholdOverScrollListener
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,8 +23,6 @@ class MainActivity : AppCompatActivity() {
         findViewById<RecyclerView>(R.id.recyclerview).apply {
             adapter = SimpleAdapter()
             addItemDecoration(SimpleOffsetDecoration(20, 10))
-
-            // Add addOnItemTouchListener
             addOnItemTouchListener(
                 OnClickItemTermListener(
                     overlapHeight = 10.dp2px(),
@@ -29,21 +32,21 @@ class MainActivity : AppCompatActivity() {
                             aboveViewHolder: RecyclerView.ViewHolder,
                             belowViewHolder: RecyclerView.ViewHolder
                         ) {
-                            log("onClickBetweenArea position ${aboveViewHolder.adapterPosition} ~ position ${belowViewHolder.adapterPosition} ")
+                            ("onClickBetweenArea position ${aboveViewHolder.adapterPosition} ~ position ${belowViewHolder.adapterPosition} ").log()
                         }
 
                         override fun onClickBottomArea(
                             rv: RecyclerView,
                             bottom: RecyclerView.ViewHolder
                         ) {
-                            log("onClickBottomArea position ${bottom.adapterPosition} ")
+                            ("onClickBottomArea position ${bottom.adapterPosition} ").log()
                         }
 
                         override fun onClickTopArea(
                             rv: RecyclerView,
                             topViewHolder: RecyclerView.ViewHolder
                         ) {
-                            log("onClickTopArea position ${topViewHolder.adapterPosition} ")
+                            ("onClickTopArea position ${topViewHolder.adapterPosition} ")
                         }
 
                     })
@@ -51,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun log(str: String) {
-        Log.e(MainActivity::javaClass.name, str)
+    fun String.log() {
+        Log.e("ExampleLogger", this)
     }
 }
