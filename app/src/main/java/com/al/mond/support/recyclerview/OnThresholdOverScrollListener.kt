@@ -26,7 +26,7 @@ class OnThresholdOverScrollListener(
     override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
         val direction = Direction.by(dy)
         if (oldDirection != direction) {
-            init(direction)
+            change(direction)
         } else if (oldDirection == direction) {
             // sameDirectionDistanceY is add only in the same direction.
             sameDirectionDistanceY += dy
@@ -38,7 +38,7 @@ class OnThresholdOverScrollListener(
         }
     }
 
-    fun init(direction: Direction) {
+    private fun change(direction: Direction) {
         oldDirection = direction
         sameDirectionDistanceY = 0
         thresholdOver = false
