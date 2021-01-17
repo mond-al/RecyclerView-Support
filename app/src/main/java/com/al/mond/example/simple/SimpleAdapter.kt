@@ -19,7 +19,7 @@ class SimpleAdapter internal constructor() : RecyclerView.Adapter<SimpleAdapter.
     }
 
     override fun getItemCount(): Int {
-        return Int.MAX_VALUE
+        return 10000
     }
 
     inner class ViewHolder internal constructor(itemView: View) :
